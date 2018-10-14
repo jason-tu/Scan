@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "io.synople.scanmoney"
+        applicationId "io.synople.scan"
         minSdkVersion 24
         targetSdkVersion 28
         versionCode 1
