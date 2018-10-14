@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:clickable="true"
     android:focusable="true"
-    tools:context=".MainFragment">
+    tools:context=".ScanFragment">
 
     <fragment
         android:id="@+id/uxFragment"
