@@ -19,6 +19,7 @@ import java.util.List;
 
 public class Recognizer {
     private final String COLLECTION_ID = "bills";
+    private final float THRESHOLD = 70F;
 
     private AmazonRekognitionClient client;
 
@@ -43,9 +44,9 @@ public class Recognizer {
         for (FaceRecord face : records) {
             String id = face.getFace().getFaceId();
             SearchFacesRequest searchFacesRequest = new SearchFacesRequest()
-                    .withCollectionId("bills")
+                    .withCollectionId(COLLECTION_ID)
                     .withFaceId(id)
-                    .withFaceMatchThreshold(70F);
+                    .withFaceMatchThreshold(THRESHOLD);
             List<FaceMatch> matches = client.searchFaces(searchFacesRequest).getFaceMatches();
             while (matches.get(0).getFace().getExternalImageId() == null) {
                 matches.remove(0);

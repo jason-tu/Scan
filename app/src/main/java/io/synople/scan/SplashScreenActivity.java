@@ -37,11 +37,12 @@ public class SplashScreenActivity extends AppCompatActivity {
             public void run() {
                 try {
                     sleep(2700);
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    finish();
                 } catch (InterruptedException e) {
                     Log.e("SplashScreen", "Splash Screen Animation", e);
                 }
+
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish();
             }
         }).start();
     }

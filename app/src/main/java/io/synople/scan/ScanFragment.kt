@@ -53,22 +53,6 @@ class ScanFragment : Fragment() {
 
         arFragment = (childFragmentManager.findFragmentById(R.id.uxFragment) as ArFragment)
         arFragment.arSceneView.planeRenderer.isVisible = false
-        arFragment.setOnTapArPlaneListener { hitResult, plane, motionEvent ->
-            val anchor = hitResult.createAnchor()
-
-            ViewRenderable.builder()
-                    .setView(context, R.layout.renderable_money)
-                    .build()
-                    .thenAccept { renderable ->
-                        val anchorNode = AnchorNode(anchor)
-                        anchorNode.setParent(arFragment.arSceneView.scene)
-
-                        (renderable?.view as TextView).text = "!"
-                        val transformableNode = TransformableNode(arFragment.transformationSystem)
-                        transformableNode.setParent(anchorNode)
-                        transformableNode.renderable = renderable
-                    }
-        }
 
         autoFocus.setOnClickListener {
             val config = Config(arFragment.arSceneView.session)
